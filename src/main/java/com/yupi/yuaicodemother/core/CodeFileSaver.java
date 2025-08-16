@@ -8,7 +8,7 @@ import com.yupi.yuaicodemother.ai.model.MultiFileCodeResult;
 import com.yupi.yuaicodemother.model.enums.CodeGenTypeEnum;
 
 import java.io.File;
-
+@Deprecated
 public class CodeFileSaver {
     //1.常量文件的根路径 项目路径/tmp/code_output
     private static final String FILE_SAVE_ROOT_PATH = System.getProperty("user.dir")+ "/tmp/code_output";
