@@ -3,6 +3,10 @@ import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { MenuProps } from 'ant-design-vue'
 
+// JS 中引入 Store
+import { useLoginUserStore } from '@/stores/loginUser.ts'
+const loginUserStore = useLoginUserStore()
+
 const props = defineProps<{
   title?: string
   logo?: string
@@ -42,8 +46,16 @@ const logoUrl = props.logo ?? new URL('@/assets/bitbug_favicon.ico', import.meta
         @click="handleMenuClick"
       />
     </div>
-    <div class="right">
-      <a-button type="primary">登录</a-button>
+    <div class="user-login-status">
+      <div v-if="loginUserStore.loginUser.id">
+        <a-space>
+          <a-avatar :src="loginUserStore.loginUser.userAvatar" />
+          {{ loginUserStore.loginUser.userName ?? '无名' }}
+        </a-space>
+      </div>
+      <div v-else>
+        <a-button type="primary" href="/user/login">登录</a-button>
+      </div>
     </div>
   </div>
 </template>
