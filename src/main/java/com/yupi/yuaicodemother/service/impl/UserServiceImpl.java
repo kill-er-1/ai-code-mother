@@ -150,7 +150,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
      * @return
      */
     @Override
-    public UserLoginVo getUserLogin(HttpServletRequest request) {
+    public User getLoginUser(HttpServletRequest request) {
         //1. 获取用户id
         Object user = request.getSession().getAttribute(USER_LOGIN_STATE);
         User userLogin = (User) user;
@@ -165,7 +165,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户不存在");
         }
 
-        return this.getLoginUserVo(currentUser);
+        return currentUser;
     }
 
     /**

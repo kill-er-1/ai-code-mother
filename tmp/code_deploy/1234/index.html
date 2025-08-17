@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务记录工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+        <header>
+            <h1>我的任务列表</h1>
+        </header>
+
+        <section class="task-input-section">
+            <form id="add-task-form">
+                <input 
+                    type="text" 
+                    id="new-task-input" 
+                    placeholder="例如：学习 JavaScript" 
+                    aria-label="新任务内容"
+                    required
+                >
+                <button type="submit" title="添加新任务">添加</button>
+            </form>
+        </section>
+
+        <section class="task-list-section">
+            <h2>待办事项</h2>
+            <ul id="task-list">
+                <!-- 任务项将由 JavaScript 动态生成 -->
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

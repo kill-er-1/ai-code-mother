@@ -51,11 +51,12 @@ public interface UserService extends IService<User> {
     UserLoginVo userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
     /**
-     * 用户登录状体
+     * 获取当前登录用户
+     *
      * @param request
      * @return
      */
-    UserLoginVo getUserLogin(HttpServletRequest request);
+    User getLoginUser(HttpServletRequest request);
 
     /**
      * 用户注销

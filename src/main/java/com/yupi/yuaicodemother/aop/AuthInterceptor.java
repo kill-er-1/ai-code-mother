@@ -3,6 +3,7 @@ package com.yupi.yuaicodemother.aop;
 import com.yupi.yuaicodemother.annotation.AuthCheck;
 import com.yupi.yuaicodemother.exception.BusinessException;
 import com.yupi.yuaicodemother.exception.ErrorCode;
+import com.yupi.yuaicodemother.model.entity.User;
 import com.yupi.yuaicodemother.model.enums.UserRoleEnum;
 import com.yupi.yuaicodemother.model.vo.uservo.UserLoginVo;
 import com.yupi.yuaicodemother.service.UserService;
@@ -35,7 +36,7 @@ public class AuthInterceptor {
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
         // 当前登录用户
-        UserLoginVo loginUser = userService.getUserLogin(request);
+        User loginUser = userService.getLoginUser(request);
         UserRoleEnum mustRoleEnum = UserRoleEnum.getEnumByValue(mustRole);
         // 不需要权限，放行
         if (mustRoleEnum == null) {
